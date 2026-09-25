@@ -1,0 +1,24 @@
+# Dataset files - do not push large datasets
+data/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Generated outputs
+output/
+outputs/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+
+# IDE files
+.vscode/
