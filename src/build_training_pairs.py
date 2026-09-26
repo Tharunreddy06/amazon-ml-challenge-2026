@@ -31,7 +31,7 @@ from matching_features import generate_matching_features
 # CONFIGURATION
 # --------------------------------------------------
 
-DATA_DIR = Path("data")
+DATA_DIR = Path("ML_Challange_datasets")
 
 GROUND_TRUTH_FILE = DATA_DIR / "train_ground_truth.tsv"
 SOURCE1_FILE = DATA_DIR / "train_source1.tsv"

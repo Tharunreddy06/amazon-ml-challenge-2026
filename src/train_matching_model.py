@@ -30,7 +30,9 @@ from sklearn.model_selection import train_test_split
 # CONFIGURATION
 # --------------------------------------------------
 
-DATA_FILE = Path("data/training_pairs_sample.csv")
+DATA_FILE = Path(
+    "ML_Challange_datasets/training_pairs_sample.csv"
+)
 MODEL_DIR = Path("models")
 MODEL_FILE = MODEL_DIR / "matching_model.pkl"
 

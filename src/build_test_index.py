@@ -11,8 +11,8 @@ sys.path.append(str(Path(__file__).resolve().parent))
 from preprocessing import preprocess_record
 
 
-INPUT_FILE = Path("data/test_source1.tsv")
-OUTPUT_DIR = Path("data")
+INPUT_FILE = Path("ML_Challange_datasets/test_source1.tsv")
+OUTPUT_DIR = Path("ML_Challange_datasets")
 DB_FILE = OUTPUT_DIR / "test_source1_index.db"
 
 BATCH_SIZE = 10000

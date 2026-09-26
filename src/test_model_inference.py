@@ -13,11 +13,21 @@ from matching_features import generate_matching_features
 from test_candidate_lookup import generate_candidates
 
 
-DB_FILE = Path("data/test_source1_index.db")
-MODEL_FILE = Path("models/matching_model.pkl")
+DB_FILE = Path(
+    "ML_Challange_datasets/test_source1_index.db"
+)
 
-TEST_SOURCE2 = Path("data/test_source2.tsv")
-TEST_SOURCE3 = Path("data/test_source3.tsv")
+MODEL_FILE = Path(
+    "models/matching_model.pkl"
+)
+
+TEST_SOURCE2 = Path(
+    "ML_Challange_datasets/test_source2.tsv"
+)
+
+TEST_SOURCE3 = Path(
+    "ML_Challange_datasets/test_source3.tsv"
+)
 
 SAMPLE_SIZE = 100
 
