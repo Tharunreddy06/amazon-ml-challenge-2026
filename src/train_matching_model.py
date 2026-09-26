@@ -316,6 +316,100 @@ print(matrix)
 
 
 # --------------------------------------------------
+# FALSE NEGATIVE ANALYSIS
+# --------------------------------------------------
+
+print("\n" + "=" * 70)
+print("FALSE NEGATIVE ANALYSIS")
+print("=" * 70)
+
+# Create a validation result DataFrame.
+# This keeps the original row information together
+# with the model probability and prediction.
+
+validation_results = df.loc[
+    validation_mask
+].copy()
+
+validation_results["probability"] = probabilities
+validation_results["prediction"] = best_predictions
+
+
+# A false negative is:
+#   actual label = 1
+#   predicted label = 0
+
+false_negatives = validation_results[
+    (validation_results["label"] == 1)
+    & (validation_results["prediction"] == 0)
+].copy()
+
+
+# Sort from highest probability to lowest probability.
+# These are the positive examples that the model
+# considered reasonably likely but still rejected
+# because the probability was below the threshold.
+
+false_negatives = false_negatives.sort_values(
+    "probability",
+    ascending=False,
+)
+
+
+print(
+    f"False negatives: {len(false_negatives)}"
+)
+
+
+if len(false_negatives) > 0:
+
+    display_columns = [
+        "source1_entity_id",
+        "query_entity_id",
+        "candidate_entity_id",
+        "label",
+        "probability",
+
+        # Name features
+        "name_similarity",
+        "name_token_similarity",
+        "name_containment",
+        "name_token_overlap_count",
+        "name_first_token_match",
+        "name_last_token_match",
+
+        # Address features
+        "address_similarity",
+        "address_token_similarity",
+        "address_containment",
+        "address_token_overlap_count",
+        "address_number_match",
+
+        # Other features
+        "exact_name_match",
+        "exact_address_match",
+        "exact_country_match",
+        "name_length_difference",
+        "address_length_difference",
+    ]
+
+    print("\nTop 20 false negatives:")
+    print("-" * 70)
+
+    print(
+        false_negatives[
+            display_columns
+        ].head(20).to_string(index=False)
+    )
+
+else:
+
+    print(
+        "No false negatives found."
+    )
+
+
+# --------------------------------------------------
 # FEATURE IMPORTANCE
 # --------------------------------------------------
 
