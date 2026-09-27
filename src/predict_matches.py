@@ -112,6 +112,8 @@ def process_file(
                 writer.writerow(prediction)
 
             count += 1
+            if count >= 1000:
+                break
 
             if count % 10000 == 0:
                 print(
